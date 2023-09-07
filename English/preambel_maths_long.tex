@@ -1,0 +1,69 @@
+\documentclass[12pt,a4paper,twoside
+%,reqno
+%,draft
+]
+{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[
+%left=2cm,
+%right=2cm,
+%top=2cm,
+%bottom=2cm
+]{geometry}
+\usepackage{fancyhdr}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools, amssymb}
+\usepackage[per-mode=fraction, exponent-product = \cdot, separate-uncertainty]{siunitx}
+\usepackage{multicol}
+\usepackage[defblank]{paralist}
+\usepackage{multicol}
+ \usepackage{multirow}
+\usepackage{tikz}
+\usepackage{nicefrac}
+\usepackage{bbm}
+\usepackage{import}
+\usepackage{caption}
+
+\author{Prof. Dr. Knees\\written by: Abdulrahman Shubbak}
+\title{functional analysis}
+\date{Winter Semester 2021/2022}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{kor}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+% \newtheorem{example}[theorem]{Example}
+
+\renewcommand{\qedsymbol}{$qed$}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE]{\rightmark}
+\fancyhead[LO]{\leftmark}
+\fancyfoot[RE,LO]{\thepage}
+
+\headheight 30pt
+\setlength{\parindent}{0pt}
+
+
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+
+\usepackage[
+colorlinks=true
+]{hyperref}
+
+\graphicspath{{fig/}}
+
+%\includeonly{10_reine_gemischte_Zustaende}
+

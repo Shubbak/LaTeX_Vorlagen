@@ -1,0 +1,64 @@
+\include{preambel.tex}
+\begin{document}
+\include{title.tex}    
+
+%==================CONTENT=======================
+
+\cleardoublepage
+\setcounter{page}{1}
+\include{01_Einfuehrung}
+
+%==================Bibliography==================
+%\nocite{*}
+%\printbibliography
+
+\printbibheading[
+	heading=bibintoc
+	]
+\printbibliography[
+	heading=subbibintoc,
+	notkeyword=database, 
+	nottype=book,
+%	type=article
+	heading=subbibliography,
+	title={Wissenschaftliche Arbeiten}
+	]
+\printbibliography[
+	heading=subbibintoc,
+	keyword=database,
+	nottype=article,
+	heading=subbibliography,
+	title={Datenbanken}
+	]
+\printbibliography[
+	heading=subbibintoc,
+	notkeyword=database,
+	type=book,
+	heading=subbibliography,
+	title={Lehrb\"ucher}
+	]
+%\printbibliography[ %TODO in bib file (not citavi) \- in the isbn where too long, after everything else is done in sha Allah
+%	heading=subbibintoc,
+%	notkeyword=database,
+%	notkeyword=dissertation,
+%	nottype=article,
+%	nottype=book,
+%	heading=subbibliography,
+%	title={Sonst.}
+%	]
+
+\include{08_Danksagung}
+
+
+\newpage
+\section{Eigenst\"andigkeitserkl\"arung}
+Hiermit erkl\"are ich, dass ich die vorliegende Arbeit selbstst\"andig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe.
+
+Alle sinngem\"a\ss{} und w\"ortlich \"ubernommenen Textstellen aus fremden Quellen wurden kenntlich gemacht.
+
+Kassel, den 15. Februar 2021
+
+\vspace{30pt}
+Abdulrahman Shubbak
+\end{document}
+

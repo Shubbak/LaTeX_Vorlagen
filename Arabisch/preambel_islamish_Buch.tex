@@ -1,0 +1,162 @@
+\documentclass[12pt,a4paper]{book}
+
+    %! TEX TS-program = xelatex
+
+%===================general packages=======================
+\usepackage{amsmath,amssymb,amsfonts}       %math stuff just in case
+\usepackage[shortlabels]{enumitem}          %for enumerate envirnoment
+\usepackage{titlesec}
+\usepackage[
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=cyan
+    ]{hyperref}                             %For references and links
+\usepackage{graphicx}                       %providing a key-value interface for optional arguments to the \includegraphics command.
+\usepackage[toc]{glossaries}
+\usepackage{multicol}                       %multiple columns in a table
+\setlength{\columnsep}{1.5cm}
+\usepackage[framemethod=TikZ, footnoteinside=false]{mdframed}   %For boxed in boxes.
+\usepackage[bottom]{footmisc}               %for better footnotes
+\usepackage[
+    %style=italian,
+    autostyle=true,
+]{csquotes}
+
+
+%===================language===============================
+\usepackage{fontspec}
+\usepackage{polyglossia}
+%\usepackage{arabicnumbers}
+\setdefaultlanguage[numerals=mashriq]{arabic}
+% \newfontfamily\arabicfont[Script=Arabic, Mapping=arabicdigits]{Amiri}
+% \newfontfamily\arabicfontsf[Script=Arabic, Mapping=arabicdigits]{Amiri}
+% \newfontfamily\arabicfonttt[Script=Arabic, Mapping=arabicdigits]{Amiri}
+
+\setmainfont{ScheherazadeNew}[  % needs ScheherazadeNew.ttf in the working directory.
+Extension = .ttf ,
+UprightFont = *-Regular ,
+BoldFont = *-Bold ,
+]
+
+\usepackage[uthmani, nopar, wordwise]{quran}
+
+%===================chapter style==========================
+\titleformat{\chapter}
+  {\normalfont\Huge\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+
+%===================own commands===========================
+\newcommand{\sas}{\char"FDFA{}}
+\newcommand{\jj}{\char"FDFB{}}
+%===
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+\newmdenv[
+  leftmargin=1cm,
+  rightmargin=2cm,
+  topline=false,
+  bottomline=false,
+  leftline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{mdquote}
+
+\renewcommand{\verse}[2]{
+    \begin{textblock}{5}(5, 0)
+		#2
+    \end{textblock}
+    #1
+}
+
+\newcommand{\hadith}[3][]
+	{\begin{mdquote}
+            {\scriptsize #1}
+
+            #2%
+	\footnotemark
+	\end{mdquote}
+	\footnotetext{{#3}}
+}
+
+
+\newcommand{\ayah}[2]{
+	\begin{quote}
+\char"FD3F\quranayah[#1][#2]\char"FD3E
+{ \footnotesize[\nolinebreak
+سورة
+\surahname*[#1]]
+
+}
+	\end{quote}
+}
+
+\newcommand{\ayahchunk}[3]{
+	\begin{quote}
+\char"FD3F\quranayah[#1][#2][#3]\char"FD3E
+{ \footnotesize[\nolinebreak
+سورة
+\surahname*[#1]:#2]
+
+}
+	\end{quote}
+}
+
+\newcommand{\ayahchunkinline}[3]{%
+﴿\quranayah[#1][#2][#3]﴾%
+{\footnotesize[\nolinebreak
+سورة
+\surahname*[#1]:#2]
+}{}}
+
+\newcommand{\ayahinline}[2]{%
+﴿\quranayah[#1][#2]﴾
+{ \footnotesize[\nolinebreak
+سورة
+\surahname*[#1]]
+}{}}
+
+%===================Bibliography===========================
+% \usepackage[backend=biber,							% biber statt bibtex
+% 	bibencoding=utf8,							    	% utf8 für deutsche Umlaute
+% 	bibwarn=true,								    	% Warnung bei fehlerhafter bib-Datei
+% 	natbib=true,								    	% natbib-Kompatibilität
+% 	%style=numeric-comp,						    		% Zitationsstil
+% 	style = numeric,
+% %	citestyle=authoryear,
+% 	maxcitenames=2,						    			% Max. Anzahl genannter Autoren
+% 	sorting=nty,						    			% Numerische Zitierreihenfolge
+% 	giveninits=true,					    			% Vornamen als Initialien
+% 	isbn=false,							    			% keine ISBN in der Literatur
+% 	doi=false,							    			% keine DOI in der Literatur
+% 	url=false							    			% keine URL in der Literatur
+% ]{biblatex}							        			% Biblatex
+%% \DefineBibliographyStrings{ngerman}{				% "et al." statt "u.a."
+%%    andothers = {{et\,al\adddot}},}					% "
+
+% \setcounter{biburllcpenalty}{9999}	% allows linebreaks after lower case letter for high value but below 10000
+% \setcounter{biburlucpenalty}{9999}	% same but after upper case letters
+% \setcounter{biburlnumpenalty}{10000}	% same but for numbers
+
+% \addbibresource{bibliography.bib}
+
+%=======================glossary===========================
+% \input{glossary}
+
+%===================appearance=============================
+\usepackage{titlesec}                       %A package providing an interface to sectioning commands for selection from various title styles.
+\usepackage[
+%	left=2cm,
+%	right=2cm,
+%	top=2cm,
+%	bottom=2cm
+]{geometry}
+\usepackage{xcolor}
+\setlength\parindent{0pt}
+\renewcommand\LayoutCheckField[2]{#1#2}
+\fboxsep=0pt
+
+
+% \includeonly{09_Hausaufgaben}
+
+%===================END OF PREAMBEL========================

@@ -1,0 +1,50 @@
+\documentclass[a4paper, 12pt, titlepage]{article}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{eurosym}
+\usepackage{textcomp}
+\usepackage{amsmath, amsfonts}
+\usepackage{hhline}
+\usepackage{graphicx}
+\usepackage{makeidx}
+
+\pagestyle{headings}
+
+\title{Das \LaTeX{} Seminar}
+\author{Abdulrahman Shubbak}
+\date{Kassel, den \today}
+
+
+\makeindex
+
+\newcommand{\MS}{Messstelle}
+\newcommand{\schein}[2]{Hiermit wird bestätigt, dass #1 am \LaTeX-Kurs im SoSe 20#2 erfolgrech teilgenommen hat.}
+
+% schöne Tabellen mit colortbl
+\usepackage{colortbl}
+\newcolumntype{G}[1]{>{\small\columncolor[gray]{0.7}}p{#1}}
+\newcolumntype{w}[1]{>{\small\hspace{0pt}}p{#1}}
+
+
+\begin{document}
+
+
+
+\begin{thebibliography}{AA}
+   \bibitem {ebelbliefert84} 
+   \textsc{Ebel}, F. \& \textsc{Bliefert}, D.
+   1984: \emph{Diplom- und Doktorarbeit.}
+   2. Aufl., vch, Weinheim: 284 Seiten.
+   \bibitem {edmondson79} 
+   \textsc{Edmonson}, F. 
+   1984: \emph{The natural history of manuscript.} -- 
+   Limnology and Oceanography, \textbf{25}: 131--135 
+   \bibitem [TU]{turk91} 
+   \textsc{Turk}, C.M. 
+   1991: \emph{effective speaking.}
+   Spon, London: 167 Seiten.
+\end{thebibliography}
+
+
+\end{document}

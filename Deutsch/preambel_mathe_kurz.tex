@@ -1,0 +1,64 @@
+\documentclass[12pt,a4paper,twoside
+%,reqno
+%,draft
+]
+{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools, amssymb}
+\usepackage[
+    per-mode=fraction,
+    exponent-product = \cdot,
+    separate-uncertainty
+    ]{siunitx}
+\usepackage{multicol, multirow}
+\usepackage[defblank]{paralist}
+\usepackage{nicefrac}
+\usepackage{bbm}
+
+
+\author{Abdulrahman Shubbak}
+\title{title}
+\date{xxx}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{kor}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+% \newtheorem{example}[theorem]{Example}
+
+\renewcommand{\qedsymbol}{$qed$}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Abdulrahman Shubbak\\35245322}
+\fancyhead[L]{xxx}
+\fancyfoot[C]{\thepage}
+
+\headheight 30pt
+\setlength{\parindent}{0pt}
+
+
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+
+\usepackage[
+colorlinks=true
+]{hyperref}
+
+\graphicspath{{fig/}}
+
+%\includeonly{10_reine_gemischte_Zustaende}
+

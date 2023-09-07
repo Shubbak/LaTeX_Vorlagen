@@ -1,0 +1,196 @@
+\documentclass[
+    12pt,
+    a4paper,
+    draft
+]{book}
+
+    %! TEX TS-program = xelatex
+
+%===================general packages=======================
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{eurosym,wasysym}
+\usepackage{enumitem}
+\usepackage[
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+]{hyperref}
+\usepackage{graphicx}
+\usepackage[toc, automake, nonumberlist]{glossaries}
+\usepackage{xcolor}
+\usepackage{multicol}
+\setlength{\columnsep}{1.5cm}
+\usepackage[normalem]{ulem}
+\usepackage{fancyhdr}
+\usepackage{nicefrac}
+\usepackage{lipsum}
+\usepackage{emptypage}
+\usepackage{tabularx}
+\usepackage{comment}
+
+
+%===================appearance=============================
+\usepackage[
+%	left=3cm,
+%	right=3cm,
+%	top=3cm,
+%	bottom=3cm
+]{geometry}
+
+\fancypagestyle{fancy}{
+\fancyhf{}
+\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyhead[LO,RE]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+}
+
+\fancypagestyle{preface}{
+\fancyhf{}
+\fancyhead[C]{Vorwort}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+}
+
+\fancypagestyle{glossary}{
+\fancyhf{}
+\fancyhead[C]{Glossar}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+}
+
+\fancypagestyle{persons}{
+\fancyhf{}
+\fancyhead[C]{Personenverzeichnis}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+}
+
+\headheight 42pt
+%===================language===============================
+\usepackage{fontspec}
+\usepackage{polyglossia}
+%\usepackage{arabicnumbers}
+\setdefaultlanguage{german}
+\setotherlanguage[numerals=mashriq]{arabic}
+
+\newfontfamily\arabicfont[Script=Arabic, Mapping=arabicdigits]{ScheherazadeNew-Regular.ttf}
+
+\usepackage[
+    autostyle=true,
+]{csquotes}
+
+%===================Quran==================================
+\usepackage[
+    uthmani,
+    nopar,
+    transde,
+    %bubenheim,
+    wordwise,
+]{quran}
+\usepackage[
+bubenheim
+]{quran-de}
+
+\deSetTrans{bubenheim}
+
+%===================own commands===========================
+\newcommand{\Allah}{Allah \textarabic{\char"FDFB} \textarabic{الله}}
+\newcommand{\Allahs}{Allahs \textarabic{\char"FDFB} \textarabic{الله}}
+\newcommand{\Prophet}{Prophet \textarabic{رسول الله \char"FDFA}}
+\newcommand{\Propheten}{Propheten \textarabic{رسول الله \char"FDFA}}
+%===
+\newcommand{\ayah}[2]{
+    \begin{quote}{
+            \flushright
+            \textarabic{\char"FD3F\quranayah[#1][#2]\char"FD3E}
+
+        }
+        \quranayahde[#1][#2]\footnote{
+            \glsn{sura} \surahname[#1] %|
+            %\textarabic{
+            %سورة
+            %\surahname*[#1]
+            %}
+        }
+    \end{quote}
+}
+
+\newcommand{\hadith}[4]
+	{\begin{quote}
+	{\flushright \textarabic{#1}
+
+	}
+	
+	#3\footnote{#4 | \textarabic{#2} }
+	
+	\end{quote}
+}
+
+\newcommand{\ayahchunk}[4]{
+    \begin{quote}{
+            \flushright\textarabic{﴿\quranayah[#1][#2][#4]﴾}
+
+        }
+        \quranayahde[#1][#2][#3]\footnote{
+            \glsn{sura} \surahname[#1], Teil von \glsn{aya} #2
+        }
+    \end{quote}
+}
+
+%===================Bibliography===========================
+\usepackage[backend=biber,							% biber statt bibtex
+	bibencoding=utf8,							    	% utf8 für deutsche Umlaute
+	bibwarn=true,								    	% Warnung bei fehlerhafter bib-Datei
+	natbib=true,								    	% natbib-Kompatibilität
+	%style=numeric-comp,						    		% Zitationsstil
+	style = authortitle-ibid,
+%	citestyle=authoryear,
+	maxcitenames=2,						    			% Max. Anzahl genannter Autoren
+	sorting=nty,						    			% Numerische Zitierreihenfolge
+	giveninits=true,					    			% Vornamen als Initialien
+	isbn=false,							    			% keine ISBN in der Literatur
+	doi=false,							    			% keine DOI in der Literatur
+	url=false							    			% keine URL in der Literatur
+]{biblatex}							        			% Biblatex
+\DefineBibliographyStrings{ngerman}{				% "et al." statt "u.a."
+   andothers = {{et\,al\adddot}},}					% "
+
+\setcounter{biburllcpenalty}{9999}	% allows linebreaks after lower case letter for high value but below 10000
+\setcounter{biburlucpenalty}{9999}	% same but after upper case letters
+\setcounter{biburlnumpenalty}{10000}	% same but for numbers
+
+\addbibresource{bibliography.bib}
+
+%=======================glossary===========================
+\newglossary[tlg]{people}{tld}{tdn}{Personenverzeichnis}
+\input{glossary}
+\input{glossary_people}
+
+\let\glst\glsuseriv     % Allah tabaraka wa taala
+\let\glssw\glsuserv     % Allah subhanahu wa taala
+\let\glsa\glsuservi     % Allah azza wa jall
+
+\newglossary[tlg]{people}{tld}{tdn}{Personenverzeichnis}
+%\newglossary[blg]{books}{bld}{bdn}{Bücher}
+\newglossary[llg]{ligatures}{lld}{ldn}{Ligaturen}
+\input{glossary/glossary_ligatures.tex}
+\input{glossary/glossary}
+\input{glossary/glossary_google_doc}
+\input{glossary/glossary_new}
+\input{glossary/glossary_people}
+%\input{glossary/glossary_books}
+
+\renewcommand{\glsentryfmt}{\glsgenentryfmt$^{\diamond}$}
+\defglsentryfmt[ligatures]{\glsgenentryfmt}
+
+%===================global settings========================
+\setlength\parindent{0pt}
+\renewcommand\LayoutCheckField[2]{#1#2}
+\fboxsep=0pt
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+%\includeonly{Fiqh}
+
+%===================END OF PREAMBEL========================
