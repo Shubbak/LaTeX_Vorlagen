@@ -1,3 +1,4 @@
+%----------{{{
 % Briefvorlage für Privatleute
 % Ersteller: Alexey Abel
 % Git-Repository: https://github.com/PanCakeConnaisseur/latex-briefvorlage-din-5008
@@ -29,7 +30,7 @@
 	%fromurl=true,
 	%
 	% Faltmarkierungen verbergen
-	%foldmarks=false,
+	foldmarks=true,
 	%
 	% Die neuste Version von scrlettr2 verwenden
 	version=last,
@@ -56,7 +57,7 @@
 
 % Absendername unter Schlussformel entfernen. Dieser wird bereits aus dem Briefkopf ersichtlich.
 % Hier wird die signature-Variable einfach auf einen leeren Wert gesetzt und wäre sonst \usekomavar{fromname}.
-\setkomavar{signature}{}
+\setkomavar{signature}{\usekomavar{fromname}}
 
 % Für Schlussformel (und nicht vorhandenen Namen darunter) Linksbündigkeit erzwingen
 %\renewcommand*{\raggedsignature}{\raggedright}
@@ -65,13 +66,13 @@
 \begin{document}
 
 % Absendername
-\setkomavar{fromname}{Anton Absender}
+\setkomavar{fromname}{Abdulrahman Shubbak}
 
 % Absenderadresse
-\setkomavar{fromaddress}{Absenderstraße 123\\67890 Aalen}
+\setkomavar{fromaddress}{Stonsbreite 2\\34125 Kassel}
 
 % Absendertelefonnummer
-\setkomavar{fromphone}{+49 123 456 789}
+\setkomavar{fromphone}{+49 152 27767534}
 
 % Absenderfax
 % (oben fromfax=true setzen)
@@ -79,7 +80,7 @@
 
 % Absender-E-Mail-Adresse
 % der erste Paremeter ist fürs Klicken, der zweite wird angezeigt/gedruckt
-\setkomavar{fromemail}{\href{mailto:anton@absender.de}{anton@absender.de}}
+\setkomavar{fromemail}{\href{mailto:a.shubbak@outlook.com}{a.shubbak@outlook.com}}
 
 % Absender-URL
 % (oben fromurl=true setzen)
@@ -89,6 +90,8 @@
 
 % Datum
 \setkomavar{date}{\today}
+
+%----------}}}
 
 % Betreff
 \setkomavar{subject}{Kündigung}
@@ -143,3 +146,6 @@ Vestibulum at auctor urna, in iaculis lectus. Nullam vitae magna metus. Praesent
 % entfernen.
 
 \end{document}
+
+
+% vim:foldmethod=marker:foldlevel=0

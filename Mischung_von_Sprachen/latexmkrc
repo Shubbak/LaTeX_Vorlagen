@@ -1,0 +1,5 @@
+@default_files = ('al-Arqam.tex');
+$bibtex_use = 1.5;
+$pdf_mode = 5;
+$clean_ext = "bdn bld glg glo gls ist ldn lld llg tfn tld tlg tdn";
+
