@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+    \draw[step=1cm, gray!20!white, very thin] (-1,-1) grid (9,9);
+    \draw[thick, ->] (0,0) -- (8,0) node[anchor=north west] {$x$};
+    \draw[thick, ->] (0,0) -- (0,8) node[anchor=south east] {$y$};
+    \foreach \x in {0,1,2,3,4,5,6,7}
+        \draw (\x,4pt) -- (\x, -4pt) node[anchor=north] {$\x$};
+    \foreach \y in {0,1,2,3,4,5,6,7}
+        \draw (4pt,\y) -- (-5pt, \y ) node[anchor=east] {$\y$};
+
+
+\end{tikzpicture}
