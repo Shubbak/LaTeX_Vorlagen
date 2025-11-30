@@ -65,9 +65,38 @@
 % Für Schlussformel (und nicht vorhandenen Namen darunter) Linksbündigkeit erzwingen
 %\renewcommand*{\raggedsignature}{\raggedright}
 
+% ==============================
+% Briefmarke hinzufügen
+% ==============================
+\usepackage{eso-pic}
+\usepackage{graphicx}
+
+\newcommand{\postagefile}{marke.pdf}
+\newcommand{\postagewidth}{34mm}   % gewünschte Markenbreite
+\newcommand{\postagevshift}{0mm}   % Feinjustierung nach unten/oben
+
+\newcommand{\postage}{%
+    \AddToShipoutPictureBG*{%
+        \AtPageUpperLeft{%
+            \put(
+            \LenToUnit{73.2mm},      % horizontale Position
+            -\LenToUnit{80mm + \postagevshift}   % vertikale Position
+            ){%
+                \includegraphics[width=\postagewidth]{\postagefile}%
+            }%
+        }%
+    }%
+}
+% ==============================
+% ==============================
+%}}}
 %}}}
 
 \begin{document}
+
+\postage    % um eine Briefmarke einzufügen.
+            % Die Briefmarke sollte unter dem Namen `marke.pdf` im Verzeichnis sein und
+            % das Format Leitz ICON Endlos-Etikett 39 mm haben.
 
 % Absendername
 % \setkomavar{fromname}{Abdulrahman Shubbak}
@@ -96,7 +125,7 @@
 \setkomavar{fromurl}[]{\href{http://absender.de}{absender.de}}
 
 % Datum
-\setkomavar{date}{Kassel, den \today}
+\setkomavar{date}{\today}
 
 %----------}}}
 

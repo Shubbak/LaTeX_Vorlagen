@@ -60,14 +60,42 @@
 
 % Absendername unter Schlussformel entfernen. Dieser wird bereits aus dem Briefkopf ersichtlich.
 % Hier wird die signature-Variable einfach auf einen leeren Wert gesetzt und wäre sonst \usekomavar{fromname}.
-\setkomavar{signature}{\usekomavar{fromname}}
+%\setkomavar{signature}{\usekomavar{fromname}}
 
 % Für Schlussformel (und nicht vorhandenen Namen darunter) Linksbündigkeit erzwingen
 %\renewcommand*{\raggedsignature}{\raggedright}
 
+% ==============================
+% Briefmarke hinzufügen
+% ==============================
+\usepackage{eso-pic}
+\usepackage{graphicx}
+
+\newcommand{\postagefile}{marke.pdf}
+\newcommand{\postagewidth}{34mm}   % gewünschte Markenbreite
+\newcommand{\postagevshift}{0mm}   % Feinjustierung nach unten/oben
+
+\newcommand{\postage}{%
+    \AddToShipoutPictureBG*{%
+        \AtPageUpperLeft{%
+            \put(
+            \LenToUnit{73.2mm},      % horizontale Position
+            -\LenToUnit{80mm + \postagevshift}   % vertikale Position
+            ){%
+                \includegraphics[width=\postagewidth]{\postagefile}%
+            }%
+        }%
+    }%
+}
+% ==============================
+% ==============================
 %}}}
 
 \begin{document}
+
+\postage    % um eine Briefmarke einzufügen.
+            % Die Briefmarke sollte unter dem Namen `marke.pdf` im Verzeichnis sein und
+            % das Format Leitz ICON Endlos-Etikett 39 mm haben.
 
 % Absendername
 \setkomavar{fromname}{Abdulrahman Shubbak}
@@ -86,8 +114,7 @@
 
 % Absender-E-Mail-Adresse
 % der erste Paremeter ist fürs Klicken, der zweite wird angezeigt/gedruckt
-\setkomavar{fromemail}{\href{mailto:a.shubbak@outlook.com}{a.shubbak@outlook.com}}
-% \setkomavar{fromemail}{\href{mailto:lina\_hout@outlook.de}{lina\_hout@outlook.de}}
+\setkomavar{fromemail}{\href{mailto:abdulrahman.shubbak@mailbox.org}{abdulrahman.shubbak@mailbox.org}}
 
 % Absender-URL
 % (oben fromurl=true setzen)
@@ -96,9 +123,12 @@
 \setkomavar{fromurl}[]{\href{http://absender.de}{absender.de}}
 
 % Datum
-\setkomavar{date}{Kassel, den \today}
+\setkomavar{date}{\today}
 
 %----------}}}
+
+
+
 
 % Betreff
 \setkomavar{subject}{Kündigung}
