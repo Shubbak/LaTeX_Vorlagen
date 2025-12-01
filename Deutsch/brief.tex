@@ -35,6 +35,7 @@
 	%
 	% Die neuste Version von scrlettr2 verwenden
 	version=last,
+    % addrfield=backgroundimage
 ]{scrlttr2}
 %}}}
 
@@ -65,37 +66,13 @@
 % Für Schlussformel (und nicht vorhandenen Namen darunter) Linksbündigkeit erzwingen
 %\renewcommand*{\raggedsignature}{\raggedright}
 
-% ==============================
-% Briefmarke hinzufügen
-% ==============================
-\usepackage{eso-pic}
-\usepackage{graphicx}
-
-\newcommand{\postagefile}{marke.pdf}
-\newcommand{\postagewidth}{34mm}   % gewünschte Markenbreite
-\newcommand{\postagevshift}{0mm}   % Feinjustierung nach unten/oben
-
-\newcommand{\postage}{%
-    \AddToShipoutPictureBG*{%
-        \AtPageUpperLeft{%
-            \put(
-            \LenToUnit{73.2mm},      % horizontale Position
-            -\LenToUnit{80mm + \postagevshift}   % vertikale Position
-            ){%
-                \includegraphics[width=\postagewidth]{\postagefile}%
-            }%
-        }%
-    }%
-}
-% ==============================
-% ==============================
 %}}}
+
+
+
 
 \begin{document}
 
-\postage    % um eine Briefmarke einzufügen.
-            % Die Briefmarke sollte unter dem Namen `marke.pdf` im Verzeichnis sein und
-            % das Format Leitz ICON Endlos-Etikett 39 mm haben.
 
 % Absendername
 \setkomavar{fromname}{Abdulrahman Shubbak}
@@ -105,8 +82,9 @@
 \setkomavar{fromaddress}{Christbuchenstraße 156\\34130 Kassel}
 
 % Absendertelefonnummer
-\setkomavar{fromphone}{+49 152 27767534}
+\setkomavar{fromphone}{+49\,152~2\,7767\,534}
 % \setkomavar{fromphone}{+49 179 5964215}
+
 
 % Absenderfax
 % (oben fromfax=true setzen)
@@ -128,6 +106,9 @@
 %----------}}}
 
 
+% \setkomavar{specialmail}{\includegraphics[trim=16.389mm 22.936mm 14.59mm 12.922mm]{marke.pdf}}
+% Dieser Befehl setzt die Briefmarke `marke.pdf` und schneidet sie korrekt.
+% Die Maße nehmen an, dass das Format Leitz ICON Endlos-Etikett 88mm verwendet wird.
 
 
 % Betreff
@@ -144,8 +125,8 @@
 
 \begin{letter}{
 	Empfänger GmbH\\
-	Empfängerstraße 987\\
-	65432 Essen
+	Empfängerstraße 145\\
+    34125 Kassel
 }
 
 \opening{Sehr geehrte Damen und Herren,}
