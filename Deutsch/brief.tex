@@ -1,5 +1,9 @@
 %----------{{{
 
+% Untere Definition entscheidet über Unterschrift 
+
+\setkomavar{signature}{\usekomavar{fromname}}
+\setkomavar{signature}{\includegraphics[width=10em]{/media/Festplatte/Abdulrahman/01_Persönlich/Dokumente/Ausweise/unterschrift.pdf}\\[-5mm]\usekomavar{fromname}}
 %----------{{{
 \documentclass[
 	fontsize=12pt,
@@ -58,7 +62,11 @@
 
 \setplength{locwidth}{18em}
 
+% Untere Definition entscheidet über Unterschrift 
+
+\setkomavar{signature}{\includegraphics[width=10em]{/media/Festplatte/Abdulrahman/01_Persönlich/Dokumente/Ausweise/unterschrift.pdf}\\[-5mm]\usekomavar{fromname}}
 \setkomavar{signature}{\usekomavar{fromname}}
+
 % Für Schlussformel (und nicht vorhandenen Namen darunter) Linksbündigkeit erzwingen
 %\renewcommand*{\raggedsignature}{\raggedright}
 
